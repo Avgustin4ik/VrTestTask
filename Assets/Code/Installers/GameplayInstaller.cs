@@ -3,7 +3,6 @@
     //todo можно заменить на пространство Code.Core и подтягивать все оттуда. либо добавить в ASMDF
     using Code.Core.SelectionScreen.Model;
     using Core.Abstract;
-    using Core.Service;
     using Core.UiElements.CloseButton.View;
     using Core.UiElements.SelectionScreen.SelectionPreview;
     using Reflex.Core;
@@ -11,9 +10,11 @@
 
     public class GameplayInstaller : MonoBehaviour, IInstaller
     {
+        // public ServicesInstaller serviceSources;
         public BaseView[] uiViews;
         public void InstallBindings(ContainerBuilder containerBuilder)
         {
+            // serviceSources.InstallBindings(containerBuilder);
 #if DEBUG
             Debug.Log("GameplayInstaller InstallBindings");
 #endif

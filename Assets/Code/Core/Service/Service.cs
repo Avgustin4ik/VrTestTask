@@ -2,7 +2,8 @@
 {
     using System;
 
-    public abstract class Service : IDisposable
+    [Serializable]
+    public class Service : IDisposable
     {
         public void Dispose()
         {

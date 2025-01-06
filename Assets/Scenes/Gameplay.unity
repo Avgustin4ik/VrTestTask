@@ -605,7 +605,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 664b313049444de1b09e424fcc2e1ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnService: {fileID: 11400000, guid: 21f1b877a82163f4d8e002ac550d19b0, type: 2}
+  serviceSources:
+  - {fileID: 11400000, guid: 21f1b877a82163f4d8e002ac550d19b0, type: 2}
 --- !u!1 &1001166283
 GameObject:
   m_ObjectHideFlags: 0
@@ -1511,6 +1512,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 155139607}
     m_Modifications:
+    - target: {fileID: 3534171509500369704, guid: 1f3ef5de354a31f4092748e4a1a0a3ad, type: 3}
+      propertyPath: serviceSources
+      value: 
+      objectReference: {fileID: 856001872}
     - target: {fileID: 3534171509500369704, guid: 1f3ef5de354a31f4092748e4a1a0a3ad, type: 3}
       propertyPath: servicesInstaller
       value: 

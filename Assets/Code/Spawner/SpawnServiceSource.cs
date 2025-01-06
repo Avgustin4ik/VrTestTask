@@ -1,16 +1,15 @@
 ﻿namespace Code.Core.Service
 {
-    using System;
+    using Reflex.Attributes;
     using UnityEngine;
     using UnityEngine.AddressableAssets;
-    using Object = System.Object;
 
     [CreateAssetMenu (menuName = "PGD/Service/SpawnService", fileName = "SpawnService", order = 0)]
-    public class SpawnServiceSource : ServiceSource
+    public class SpawnServiceSource : ServiceSource<SpawnService>
     {
         public AssetReference[] AssetReferences;
-
-        public SpawnService CreateService()
+        [Inject]
+        protected override SpawnService CreateServiceInstance()
         {
             return new SpawnService(AssetReferences);
         }

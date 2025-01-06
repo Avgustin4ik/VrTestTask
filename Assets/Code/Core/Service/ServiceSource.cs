@@ -1,12 +1,15 @@
 ﻿namespace Code
 {
-    using System;
     using Core.Service;
-    using UnityEngine;
-    using Object = System.Object;
+    using Reflex.Attributes;
 
     //нужен для сериализации исходных данных в редакторе
-    public abstract class ServiceSource : ScriptableObject
+    public abstract class ServiceSource<T> : ServiceSourceBase where T : Service
     {
+        public override Service CreateService()
+        {
+            return CreateServiceInstance();
+        }
+        protected abstract T CreateServiceInstance();
     }
 }
