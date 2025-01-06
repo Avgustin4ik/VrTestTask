@@ -1,12 +1,13 @@
 ﻿namespace Code.Core.Abstract
 {
+    using System;
     using UnityEngine;
 
-    public class BaseView : MonoBehaviour
+    public class BaseView : MonoBehaviour, IDisposable
     {
         private CanvasGroup _canvasGroup;
         
-        public virtual void Initialize()
+        protected virtual void Initialize()
         {
             if (gameObject.TryGetComponent(typeof(CanvasGroup), out var canvas))
             {

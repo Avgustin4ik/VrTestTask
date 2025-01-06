@@ -36,9 +36,12 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - XR Simulation
   - 
   m_SortingLayers:
+  - name: UI Player
+    uniqueID: 3054762111
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

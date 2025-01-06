@@ -6,7 +6,7 @@ namespace Code.Core.Abstract
     {
         public TModel Model { get; private set; }
         [Inject]
-        protected virtual void Initialize(TModel model)
+        public virtual void Initialize(TModel model)
         {
             Model = model;
 #if DEBUG
