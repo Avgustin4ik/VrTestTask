@@ -1,8 +1,10 @@
-﻿namespace Code.Core.UiElements.SelectionScreen.SelectionPreview
+﻿namespace Code.UiElements.SelectionScreen.SelectionPreview
 {
-    using Abstract;
+    using Code.Core.Abstract;
     using PrimeTween;
+    using Reflex.Attributes;
     using UnityEngine;
+    using UnityEngine.AddressableAssets;
 
     public class SelectionPreviewView : UiView<SelectionPreviewViewModel>
     {
@@ -12,6 +14,8 @@
         public float highlightScale = 1.2f;
         public float durationInSeconds = 0.2f;
         public Ease ease = Ease.OutSine;
+        
+        [Inject]
         public override void Initialize(SelectionPreviewViewModel model)
         {
             _defaultScale = transform.localScale;
@@ -25,10 +29,12 @@
                 isHighlighted ? _defaultScale*highlightScale : _defaultScale,
                 durationInSeconds,ease);
         }
+
+        
     }
 
     public class SelectionPreviewViewModel : IModel
     {
-        public string AssetReference;
+        public AssetReference AssetReference;
     }
 }

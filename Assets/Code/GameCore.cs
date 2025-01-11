@@ -3,6 +3,7 @@
     using Core.Service;
     using Reflex.Attributes;
     using Reflex.Core;
+    using Spawner;
     using UnityEngine;
     public class GameCore : MonoBehaviour
     {

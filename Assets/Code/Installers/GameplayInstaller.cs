@@ -4,17 +4,14 @@
     using Code.Core.SelectionScreen.Model;
     using Core.Abstract;
     using Core.UiElements.CloseButton.View;
-    using Core.UiElements.SelectionScreen.SelectionPreview;
     using Reflex.Core;
+    using UiElements.SelectionScreen.SelectionPreview;
     using UnityEngine;
 
     public class GameplayInstaller : MonoBehaviour, IInstaller
     {
-        // public ServicesInstaller serviceSources;
-        public BaseView[] uiViews;
         public void InstallBindings(ContainerBuilder containerBuilder)
         {
-            // serviceSources.InstallBindings(containerBuilder);
 #if DEBUG
             Debug.Log("GameplayInstaller InstallBindings");
 #endif

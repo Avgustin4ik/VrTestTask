@@ -2,7 +2,7 @@
 {
     using Reflex.Core;
     using UnityEngine;
-
+    //todo перенести в немобеховский инсталлер (инсталер проекта например)
     public class ServicesInstaller : MonoBehaviour, IInstaller
     {
         public ServiceSourceBase[] serviceSources;
@@ -17,14 +17,6 @@
                 Debug.Log("sourceBase: " + service.GetType());
                 containerBuilder.AddSingleton(service, service.GetType());
             }
-        }
-    }
-    
-    public class TestMonoBehaviour<T> : MonoBehaviour
-    {
-        public T Test()
-        {
-            return default;
         }
     }
 }
