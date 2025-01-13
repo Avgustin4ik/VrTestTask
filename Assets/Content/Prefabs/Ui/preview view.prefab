@@ -92,6 +92,7 @@ MonoBehaviour:
   highlightScale: 1.2
   durationInSeconds: 0.2
   ease: 3
+  button: {fileID: 618986256648272186}
 --- !u!114 &618986256648272186
 MonoBehaviour:
   m_ObjectHideFlags: 0

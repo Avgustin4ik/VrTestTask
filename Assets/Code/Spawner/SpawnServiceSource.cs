@@ -1,7 +1,6 @@
-﻿namespace Code.Core.Service
+﻿namespace Code.Spawner
 {
     using Reflex.Attributes;
-    using Spawner;
     using UnityEngine;
     using UnityEngine.AddressableAssets;
 

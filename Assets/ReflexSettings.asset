@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd1893c3e42c4cec8f36aac4d78f7757, type: 3}
-  m_Name: ServiceLoader
+  m_Script: {fileID: 11500000, guid: f50e4916e4924f2788a73057a16764c0, type: 3}
+  m_Name: ReflexSettings
   m_EditorClassIdentifier: 
-  services:
-  - {fileID: 11400000, guid: 21f1b877a82163f4d8e002ac550d19b0, type: 2}
+  <LogLevel>k__BackingField: -1

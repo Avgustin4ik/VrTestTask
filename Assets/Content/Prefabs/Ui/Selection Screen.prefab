@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e82ab44f7e9c4b3196a41ea56ec2b970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnButtonPrefab: {fileID: 0}
-  contentParent: {fileID: 0}
+  spawnButtonPrefab: {fileID: 3545065165844919658, guid: f4d9052bff1e62a45ac8e06b00ccfa7a, type: 3}
+  contentParent: {fileID: 4598860913979483482}
 --- !u!225 &1965167969361888748
 CanvasGroup:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using UnityEngine.AddressableAssets;
 
-    internal interface ISpawnService
+    public interface ISpawnService
     {
         IEnumerable<AssetReference> GetAssetReferences();
     }

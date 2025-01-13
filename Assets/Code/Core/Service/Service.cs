@@ -3,10 +3,7 @@
     using System;
 
     [Serializable]
-    public class Service : IDisposable
+    public class Service
     {
-        public void Dispose()
-        {
-        }
     }
 }
