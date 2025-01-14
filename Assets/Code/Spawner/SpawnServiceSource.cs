@@ -8,7 +8,6 @@
     public class SpawnServiceSource : ServiceSource<SpawnService>
     {
         public AssetReference[] AssetReferences;
-        [Inject]
         protected override SpawnService CreateServiceInstance()
         {
             return new SpawnService(AssetReferences);
