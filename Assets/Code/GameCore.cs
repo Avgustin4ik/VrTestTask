@@ -13,11 +13,11 @@
             DontDestroyOnLoad(gameObject);
         }
 
-        private void Awake()
+        private void Start()
         {
             // _serviceLoader.LoadServices();
             //todo add boot loader
-            _spawnService.Test();
+            // _spawnService.Test();
         }
         
         

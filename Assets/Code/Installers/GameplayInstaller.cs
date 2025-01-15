@@ -19,6 +19,10 @@
 #endif
             containerBuilder.AddSingleton(typeof(Injector));
             containerBuilder.AddSingleton(typeof(PropsFactory));
+            containerBuilder.AddSingleton(typeof(UIFactory));
+            
+            containerBuilder.AddTransient(typeof(TestModel), typeof(ITestModel));
+            
             
             containerBuilder.AddScoped(typeof(SelectionScreenModel));
             containerBuilder.AddTransient(typeof(SelectionPreviewViewModel));

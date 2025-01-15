@@ -1,30 +1,29 @@
 ﻿namespace Code.Spawner
 {
+    using System;
+    using Core;
     using Cysharp.Threading.Tasks;
-    using Reflex.Core;
-    using Reflex.Injectors;
     using UnityEngine;
     using UnityEngine.AddressableAssets;
 
     public class PropsFactory
     {
-        private readonly Container _container;
+        private readonly Injector _injector;
 
-        public PropsFactory(Container container)
+        public PropsFactory(Injector injector)
         {
-            _container = container;
+            _injector = injector;
             //todo добавить инъекцию зависимостей
         }
         
-        public async UniTask<GameObject> Create(AssetReference assetReference, Vector3 position = default, Quaternion rotation = default)
+        public async UniTask<GameObject> SpawnInstanceAsync(AssetReference assetReference, Vector3 position = default, Quaternion rotation = default)
         {
             var task = Addressables.LoadAssetAsync<GameObject>(assetReference);
             await task;
             var prefab = task.Result;
-            var instance = GameObject.Instantiate(prefab, Vector3.zero, Quaternion.identity);
-            GameObjectInjector.InjectRecursive(instance, _container);
+            var instance = GameObject.Instantiate(prefab, position, rotation);
+            _injector.Inject(instance);
             return instance;
-            //todo добавить создание пропов
         }
         
         public void Destroy()

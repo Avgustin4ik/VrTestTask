@@ -25,7 +25,7 @@
         
         public Button button;
         private Vector3 _defaultScale;
-        SpawnService _spawnService;
+        [Inject] private PropsFactory _propsFactory;
         Container _container;
         
         [Inject]
@@ -44,8 +44,7 @@
 
         private void OnModelPicked()
         {
-            var spawnService = _container.Resolve<SpawnService>();
-            spawnService.Spawn(Model.AssetReference, default,default);
+            _propsFactory.SpawnInstanceAsync(Model.AssetReference);
         }
 
         public void Highlight(bool isHighlighted = true)
