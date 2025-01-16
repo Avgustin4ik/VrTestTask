@@ -2,7 +2,9 @@
 {
     using Code.Core.Abstract;
     using Core;
+    using Cysharp.Threading.Tasks;
     using PrimeTween;
+    using Props;
     using Reflex.Attributes;
     using Reflex.Core;
     using Reflex.Injectors;
@@ -25,26 +27,19 @@
         
         public Button button;
         private Vector3 _defaultScale;
-        [Inject] private PropsFactory _propsFactory;
-        Container _container;
+        [Inject] private EditablePropsFactory _factory;
         
         [Inject]
         public override void Initialize(SelectionPreviewViewModel model)
         {
-            _container ??= ContainerDi.Builder.Parent;
             button.OnClickAsObservable().Subscribe(x => OnModelPicked()).AddTo(this);
             _defaultScale = transform.localScale;
             base.Initialize(model);
         }
 
-        public void Start()
+        private async UniTaskVoid OnModelPicked()
         {
-            var builderParent = ContainerDi.Builder.Parent;
-        }
-
-        private void OnModelPicked()
-        {
-            _propsFactory.SpawnInstanceAsync(Model.AssetReference);
+            _factory.SpawnInstanceAsync(Model.AssetReference);
         }
 
         public void Highlight(bool isHighlighted = true)
@@ -54,8 +49,7 @@
                 isHighlighted ? _defaultScale*highlightScale : _defaultScale,
                 durationInSeconds,ease);
         }
-
-
+        
         public void OnPointerEnter(PointerEventData eventData)
         {
             Highlight();

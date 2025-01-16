@@ -1,25 +1,21 @@
 ﻿namespace Code
 {
-    using Core.Service;
+    using Props;
     using Reflex.Attributes;
-    using Reflex.Core;
-    using Spawner;
     using UnityEngine;
     public class GameCore : MonoBehaviour
     {
-        [Inject] SpawnService _spawnService;
+        private PropsEditor _propsEditor;
+
         private void OnEnable()
         {
             DontDestroyOnLoad(gameObject);
         }
-
-        private void Start()
+        [Inject]
+        public void Construct(PropsEditor propsEditor)
         {
-            // _serviceLoader.LoadServices();
-            //todo add boot loader
-            // _spawnService.Test();
+            _propsEditor = propsEditor;
+            Debug.Log("GameCore Construct");
         }
-        
-        
     }
 }

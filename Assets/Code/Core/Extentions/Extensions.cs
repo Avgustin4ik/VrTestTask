@@ -1,5 +1,6 @@
 ﻿namespace Code.Core.Extentions
 {
+    using Abstract;
     using UnityEngine;
 
     public static class Extensions
@@ -14,6 +15,11 @@
                 }
             }
             return null;
+        }
+        
+        public static TModel TryGetModel<TModel>(this MonoBehaviour monoBehaviour) where TModel : IModel
+        {
+            return monoBehaviour.GetComponent<TModel>() ?? monoBehaviour.GetComponentInParent<TModel>();
         }
         
     }

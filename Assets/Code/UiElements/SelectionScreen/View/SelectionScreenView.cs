@@ -19,26 +19,17 @@
         //todo : refactor spawn to use asset reference
         [SerializeField] private SelectionPreviewView spawnButtonPrefab;
         [SerializeField] private Transform contentParent;
-        public Button SpawnTestButton;
         [Inject] private SpawnService _spawnService;
         [Inject] private PropsFactory _propsFactory;
         [Inject] private UIFactory _uiFactory;
         [Inject]
         public override void Initialize(SelectionScreenModel model)
         {
-            SpawnTestButton.OnClickAsObservable().Subscribe(x => SpawnTestAsset()).AddTo(this);
             SetupButtons(_spawnService.GetAssetReferences());
             SetDefaultState();
-            // closeButton.Button.onClick.AsObservable().Subscribe(x => Close()).AddTo(this);
             base.Initialize(model);
         }
 
-        private void SpawnTestAsset()
-        {
-            Debug.Log("SpawnTestAsset");
-            var assetReference = _spawnService.GetAssetReferences().First();
-            _propsFactory.SpawnInstanceAsync(assetReference);
-        }
 
         private void SetupButtons(IEnumerable<AssetReference> refs)
         {

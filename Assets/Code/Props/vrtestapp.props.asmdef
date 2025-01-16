@@ -1,18 +1,14 @@
 {
-    "name": "vrtestapp.objectsmodels",
+    "name": "vrtestapp.props",
     "rootNamespace": "",
     "references": [
         "GUID:560b04d1a97f54a4e82edc0cbbb69285",
-        "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:6546d7765b4165b40850b3667f981c26",
         "GUID:1530a967b84cfb44dbdd5e8a1989764f",
         "GUID:d2aeb8b69b2125b4e8d8de0105380313",
-        "GUID:9e24947de15b9834991c9d8411ea37cf",
-        "GUID:80ecb87cae9c44d19824e70ea7229748",
-        "GUID:f51ebe6a0ceec4240a699833d6309b23",
-        "GUID:84651a3751eca9349aac36a66bba901b",
         "GUID:fe685ec1767f73d42b749ea8045bfe43",
-        "GUID:190979c3ed6e41c448f5e9925429edf9"
+        "GUID:73d4391253094d0d93355c701063901f",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:9e24947de15b9834991c9d8411ea37cf"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
