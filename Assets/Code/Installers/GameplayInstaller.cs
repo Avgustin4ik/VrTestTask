@@ -9,20 +9,24 @@
     using Spawner;
     using UiElements.SelectionScreen.SelectionPreview;
     using UnityEngine;
-    using UnityEngine.XR.Interaction.Toolkit.Interactors;
+    using UnityEngine.InputSystem;
+    using UnityEngine.InputSystem.XR;
+    using UnityEngine.XR;
 
     public class GameplayInstaller : MonoBehaviour, IInstaller
     {
-        [SerializeField] private NearFarInteractor rightInteractor;
-        [SerializeField] private NearFarInteractor leftInteractor;
+        [Header("Input")]
+        public bool runSimulation = true;
+        [SerializeField] private InputScheme simulatorInputScheme;
+        [SerializeField] private InputScheme deviceInputScheme;
+        
         public void InstallBindings(ContainerBuilder containerBuilder)
         {
 #if DEBUG
             Debug.Log("GameplayInstaller InstallBindings");
 #endif
-            containerBuilder.AddSingleton(rightInteractor);
-            containerBuilder.AddSingleton(leftInteractor);
-            containerBuilder.AddSingleton(new ControlScheme(rightInteractor, leftInteractor));
+            InstallControl(containerBuilder);
+            
             containerBuilder.AddSingleton(typeof(PropsEditor));
             containerBuilder.AddSingleton(typeof(Injector));
             containerBuilder.AddSingleton(typeof(PropsFactory));
@@ -35,6 +39,16 @@
             containerBuilder.AddScoped(typeof(SelectionScreenModel));
             containerBuilder.AddTransient(typeof(SelectionPreviewViewModel));
             containerBuilder.AddTransient(typeof(CloseButtonModel));
+        }
+
+        private void InstallControl(ContainerBuilder containerBuilder)
+        {
+            //todo добавить переключение между симуляцией и устройством на лету
+            var inputScheme = runSimulation ? this.simulatorInputScheme : deviceInputScheme;
+            containerBuilder.AddSingleton(this.simulatorInputScheme.rightInteractor);
+            containerBuilder.AddSingleton(this.simulatorInputScheme.leftInteractor);
+            containerBuilder.AddSingleton(new ControlScheme(
+                inputScheme));
         }
     }
 }

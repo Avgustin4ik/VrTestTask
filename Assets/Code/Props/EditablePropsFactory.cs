@@ -25,9 +25,9 @@
         public async UniTask<PropsMono> SpawnInstanceAsync(AssetReference assetReference, Vector3 position = default,
             Quaternion rotation = default)
         {
-            var instnace = await base.SpawnInstanceAsync(assetReference);
+            var instance = await base.SpawnInstanceAsync(assetReference);
 
-            if (!instnace.TryGetComponent<PropsMono>(out var propsMono)) throw new System.Exception("PropsMono not found");
+            if (!instance.TryGetComponent<PropsMono>(out var propsMono)) throw new System.Exception("PropsMono not found");
             _propsEditor.SelectProps(propsMono.Model);
             return propsMono;
         }

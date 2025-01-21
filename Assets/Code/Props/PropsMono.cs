@@ -25,6 +25,11 @@
             model.Rotation.Where(x=>model.IsInEditMode.Value).Subscribe(Rotate).AddTo(this);
             model.IsInEditMode.Subscribe(HandleVisual).AddTo(this);
             model.Test();
+            model.Despawn.Subscribe( x =>
+            {
+                Debug.Log("Despawn");
+                Destroy(gameObject);
+            }).AddTo(this);
         }
         
         private void HandleVisual(bool isInEditMode)

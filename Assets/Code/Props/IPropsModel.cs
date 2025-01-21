@@ -10,5 +10,6 @@
         public ReactiveProperty<Quaternion> Rotation { get; }
         public ReactiveProperty<bool> IsInEditMode { get; }
         public void Test();
+        public ReactiveCommand<bool> Despawn { get; }
     }
 }

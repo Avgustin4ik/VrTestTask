@@ -19,5 +19,7 @@
         {
             Debug.Log("TestModel Test");
         }
+
+        public ReactiveCommand<bool> Despawn { get; } = new ReactiveCommand<bool>();
     }
 }

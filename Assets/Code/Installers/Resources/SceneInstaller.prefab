@@ -44,3 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ba84e656b04c1d85e6c33cb6baafec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rightInteractor: {fileID: 0}
+  leftInteractor: {fileID: 0}
+  rightHandAction:
+    m_Name: Right Hand
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f4dbfd87-1dc5-4bf2-9f3f-49435b0950e6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0

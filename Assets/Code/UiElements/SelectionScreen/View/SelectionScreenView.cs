@@ -22,6 +22,7 @@
         [Inject] private SpawnService _spawnService;
         [Inject] private PropsFactory _propsFactory;
         [Inject] private UIFactory _uiFactory;
+        
         [Inject]
         public override void Initialize(SelectionScreenModel model)
         {
