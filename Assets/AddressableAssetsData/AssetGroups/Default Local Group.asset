@@ -15,8 +15,23 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 97987e28a6f153549bd28da0d79ea9f5
   m_SerializeEntries:
+  - m_GUID: 23c849a9fdbb63e419943c79676f9522
+    m_Address: Assets/Content/Prefabs/Ui/Selection Screen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5834d7f6e2c94ae42b24d412cb515b1a
     m_Address: Assets/Content/Prefabs/General/Default Prefab.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 765da21df53c8144d92e1b44da73c0c9
+    m_Address: Assets/Content/Prefabs/Ui/Close button.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4d9052bff1e62a45ac8e06b00ccfa7a
+    m_Address: Assets/Content/Prefabs/Ui/preview view.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

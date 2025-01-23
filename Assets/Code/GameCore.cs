@@ -1,6 +1,6 @@
 ﻿namespace Code
 {
-    using Props;
+    using Gameplay.Props;
     using Reflex.Attributes;
     using UnityEngine;
     public class GameCore : MonoBehaviour

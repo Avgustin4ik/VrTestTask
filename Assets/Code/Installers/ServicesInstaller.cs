@@ -1,8 +1,8 @@
 ﻿namespace Code.Installers
 {
+    using Core.Abstract.Service;
     using Reflex.Core;
     using Reflex.Injectors;
-    using Spawner;
     using UnityEngine;
     //todo перенести в немобеховский инсталлер (инсталер проекта например)
     public class ServicesInstaller : MonoBehaviour, IInstaller

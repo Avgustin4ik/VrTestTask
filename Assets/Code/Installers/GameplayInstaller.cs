@@ -1,12 +1,12 @@
 ﻿namespace Code.Installers
 {
-    using Code.Core.SelectionScreen.Model;
     using Core;
-    using Core.UiElements.CloseButton.View;
-    using Player;
-    using Props;
+    using Core.Factories;
+    using Gameplay.Player;
+    using Gameplay.Props;
     using Reflex.Core;
-    using Spawner;
+    using UiElements.CloseButton.Model;
+    using UiElements.SelectionScreen.Model;
     using UiElements.SelectionScreen.SelectionPreview;
     using UnityEngine;
     using UnityEngine.InputSystem;
