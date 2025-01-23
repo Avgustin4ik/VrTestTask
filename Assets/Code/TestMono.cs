@@ -7,7 +7,7 @@
 
     public class TestMono : MonoBehaviour
     {
-        [Inject] private SpawnService _spawnService;
+        [Inject] private ISpawnService _spawnService;
 
         [Inject]
         public void Constuct(ITestModel model)

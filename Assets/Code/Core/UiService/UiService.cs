@@ -7,11 +7,11 @@
     using UnityEngine;
     using UnityEngine.AddressableAssets;
 
-    public class UiService : Service, IUIService, IDisposable
+    public class UiService : Service, IUiService, IDisposable
     {
-        private Dictionary<Type, AssetReferenceT<BaseView>> _uiAssets;
+        private Dictionary<Type, AssetReference> _uiAssets;
         
-        public UiService(Dictionary<Type, AssetReferenceT<BaseView>> assetCollection)
+        public UiService(Dictionary<Type, AssetReference> assetCollection)
         {
             _uiAssets = assetCollection;
         }
@@ -25,15 +25,9 @@
             throw new NotImplementedException();
         }
 
-        public AssetReferenceT<BaseView> GetUiAssetReference<T>() where T : BaseView
+        public AssetReference GetUiAssetReference<T>() where T : BaseView
         {
-            throw new NotImplementedException();
+            return _uiAssets[typeof(T)];
         }
-    }
-
-    public interface IUIService
-    {
-        GameObject GetUiPrefab<T>() where T : BaseView;
-        AssetReferenceT<BaseView> GetUiAssetReference<T>() where T : BaseView;
     }
 }

@@ -20,7 +20,6 @@
         private bool TryUpdateAssetsDatabase()
         {
             _assetCollection ??= new Dictionary<Type, AssetReference>();
-            _assetCollection.Clear();
             var isAllLoaded = true;
             foreach (var assetReference in AssetReferences)
             {
@@ -50,9 +49,11 @@
             return isAllLoaded;
         }
 
-    protected override UiService CreateServiceInstance()
+        protected override UiService CreateServiceInstance()
         {
-            throw new System.NotImplementedException();
+            if(_assetCollection == null)
+                TryUpdateAssetsDatabase();
+            return new UiService(_assetCollection);//инжектировать сюда словарь?
         }
     }
 }

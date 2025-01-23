@@ -1,32 +1,31 @@
 ﻿namespace Code.Core.Factories
 {
+    using Abstract;
     using Code.Core;
     using Cysharp.Threading.Tasks;
+    using UiService;
     using UnityEngine;
-    using UnityEngine.AddressableAssets;
 
-    public class UIFactory
+    public class UIFactory : PropsFactory
     {
-        private readonly Injector _injector;
-        public UIFactory(Injector injector)
+        private readonly IUiService _uiService;
+
+        public UIFactory(Injector injector, IUiService uiService) : base(injector)
         {
-            _injector = injector;
+            _uiService = uiService;
         }
-        
-        public async UniTask<TObject> SpawnUIInstanceAsync<TObject>(AssetReference assetReference, Transform parent, Vector3 position = default, Quaternion rotation = default) where TObject : UnityEngine.Object
+
+        public async UniTask<T> SpawnUIInstanceAsync<T>(
+            Transform parent,
+            Vector3 position = default,
+            Quaternion rotation = default) where T : BaseView
         {
-            var task = Addressables.LoadAssetAsync<GameObject>(assetReference);
-            await task;
-            var prefab = task.Result;
-            var instance = GameObject.Instantiate<TObject>(prefab.GetComponent<TObject>(),parent);
-            _injector.Inject(instance);
-            return instance;
-        }
-        
-        public TObject SpawnUI<TObject>(TObject uiPrefab, Transform parent, Vector3 position = default, Quaternion rotation = default) where TObject : UnityEngine.Object
-        {
-            var instance = GameObject.Instantiate(uiPrefab, parent);
-            _injector.Inject(instance);
+            var uiAssetReference = _uiService.GetUiAssetReference<T>();
+            var baseView = await base.SpawnInstanceAsync(uiAssetReference);
+            var instance = baseView.GetComponent<T>();
+            instance.transform.SetParent(parent);
+            instance.transform.localPosition = position;
+            instance.transform.localRotation = rotation;
             return instance;
         }
     }

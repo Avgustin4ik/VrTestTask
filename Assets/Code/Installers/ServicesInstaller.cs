@@ -1,6 +1,7 @@
 ﻿namespace Code.Installers
 {
     using Core.Abstract.Service;
+    using Core.UiService;
     using Reflex.Core;
     using Reflex.Injectors;
     using UnityEngine;
@@ -18,6 +19,18 @@
                 var service = sourceBase.CreateService();
                 Debug.Log("sourceBase: " + service.GetType());
                 containerBuilder.AddSingleton(service);
+                var serviceType = service.GetType();
+                var interfaceType = serviceType.GetInterface($"I{serviceType.Name}");
+
+                if (interfaceType != null)
+                {
+                    containerBuilder.AddSingleton(service, interfaceType);
+                }
+                else
+                {
+                    containerBuilder.AddSingleton(service);
+                    Debug.LogWarning($"No interface found for service type {serviceType.Name}");
+                }
             }
         }
     }

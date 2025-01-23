@@ -27,8 +27,9 @@
 #endif
             InstallControl(containerBuilder);
             
-            containerBuilder.AddSingleton(typeof(PropsEditor));
             containerBuilder.AddSingleton(typeof(Injector));
+            containerBuilder.AddSingleton(typeof(PropsEditor));
+            
             containerBuilder.AddSingleton(typeof(PropsFactory));
             containerBuilder.AddSingleton(typeof(UIFactory));
             containerBuilder.AddSingleton(typeof(EditablePropsFactory));

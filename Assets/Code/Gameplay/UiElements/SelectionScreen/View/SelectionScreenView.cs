@@ -1,13 +1,14 @@
-﻿namespace Code.UiElements.SelectionScreen.View
+﻿namespace Code.Gameplay.UiElements.SelectionScreen.View
 {
     using System;
     using System.Collections.Generic;
+    using Code.Core.Abstract;
+    using Code.Core.Factories;
+    using Code.Gameplay.Player;
+    using Code.Gameplay.Spawner;
+    using Code.UiElements.SelectionScreen.Model;
     using Code.UiElements.SelectionScreen.SelectionPreview;
-    using Core.Abstract;
-    using Core.Factories;
-    using Gameplay.Player;
-    using Gameplay.Spawner;
-    using Model;
+    using Cysharp.Threading.Tasks;
     using Reflex.Attributes;
     using UniRx;
     using UnityEngine;
@@ -36,13 +37,13 @@
             base.Initialize(model);
         }
         
-        private void SetupButtons(IEnumerable<AssetReference> refs)
+        private async UniTaskVoid SetupButtons(IEnumerable<AssetReference> refs)
         {
             foreach (var assetRef in refs)
             {
-                var spawnUI = _uiFactory.SpawnUI(spawnButtonPrefab, contentParent);
-                spawnUI.Model.AssetReference = assetRef;
-                //todo : refactor spawn with models
+                var uiView = await _uiFactory.SpawnUIInstanceAsync<SelectionPreviewView>(contentParent);
+                uiView.Model.AssetReference = assetRef;
+                // todo : refactor spawn with models
             }
         }
 
