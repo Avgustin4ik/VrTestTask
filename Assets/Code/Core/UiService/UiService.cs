@@ -4,14 +4,15 @@
     using System.Collections.Generic;
     using Abstract;
     using Abstract.Service;
+    using Cysharp.Threading.Tasks;
     using UnityEngine;
     using UnityEngine.AddressableAssets;
 
     public class UiService : Service, IUiService, IDisposable
     {
-        private Dictionary<Type, AssetReference> _uiAssets;
-        
-        public UiService(Dictionary<Type, AssetReference> assetCollection)
+        private readonly Dictionary<Type, string> _uiAssets;
+
+        public UiService(Dictionary<Type, string> assetCollection)
         {
             _uiAssets = assetCollection;
         }
@@ -25,9 +26,6 @@
             throw new NotImplementedException();
         }
 
-        public AssetReference GetUiAssetReference<T>() where T : BaseView
-        {
-            return _uiAssets[typeof(T)];
-        }
+        public AssetReference GetUiAssetReference<T>() where T : BaseView => new(_uiAssets[typeof(T)]);
     }
 }

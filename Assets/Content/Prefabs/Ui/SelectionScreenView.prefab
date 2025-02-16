@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 8202590526231398790}
   - component: {fileID: 1965167969361888748}
   m_Layer: 5
-  m_Name: SelectionScreen
+  m_Name: SelectionScreenView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

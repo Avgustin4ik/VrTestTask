@@ -5,6 +5,7 @@
     using Abstract;
     using Abstract.Service;
     using Sirenix.OdinInspector;
+    using UnityEditor;
     using UnityEngine;
     using UnityEngine.AddressableAssets;
     
@@ -14,12 +15,17 @@
     {
         [OnCollectionChanged("TryUpdateAssetsDatabase")]
         public AssetReference[] AssetReferences;
-    
-        private Dictionary<Type,AssetReference> _assetCollection;
+        private Dictionary<Type,string> _assetCollection;
+        
+        private void Awake()
+        {
+            TryUpdateAssetsDatabase();
+        }
+
         [Button]
         private bool TryUpdateAssetsDatabase()
         {
-            _assetCollection ??= new Dictionary<Type, AssetReference>();
+            _assetCollection ??= new Dictionary<Type, string>();
             var isAllLoaded = true;
             foreach (var assetReference in AssetReferences)
             {
@@ -38,7 +44,7 @@
                 finally
                 {
                     asyncOperationHandle.Release();
-                    _assetCollection.TryAdd(assetType, assetReference);
+                    _assetCollection.TryAdd(assetType, assetReference.AssetGUID);
                 }
             }
 
@@ -51,7 +57,7 @@
 
         protected override UiService CreateServiceInstance()
         {
-            if(_assetCollection == null)
+            if(_assetCollection == null || _assetCollection.Count == 0)
                 TryUpdateAssetsDatabase();
             return new UiService(_assetCollection);//инжектировать сюда словарь?
         }

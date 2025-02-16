@@ -49,7 +49,6 @@
 
         private void SetDefaultState()
         {
-            // Hide();
         }
     }
 }

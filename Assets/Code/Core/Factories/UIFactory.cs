@@ -26,6 +26,7 @@
             instance.transform.SetParent(parent);
             instance.transform.localPosition = position;
             instance.transform.localRotation = rotation;
+            instance.transform.localScale = Vector3.one;
             return instance;
         }
     }
